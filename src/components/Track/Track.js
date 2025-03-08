@@ -26,3 +26,5 @@ function Track({ track, onAdd, onRemove, isRemoval }) {
     </div>
   );
 }
+
+export default Track;
