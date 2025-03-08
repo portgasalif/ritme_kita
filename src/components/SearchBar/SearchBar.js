@@ -13,17 +13,20 @@ function SearchBar({ onSearch }) {
     if (search.trim()) {
       onSearch(search);
     }
+    setSearch("");
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Search for a song..."
-        value={search}
-        onChange={onChangeSearch}
-      />
-      <button onClick={handleSubmit}>Search</button>
-    </form>
+    <div className="SearchBar">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Search for a song..."
+          value={search}
+          onChange={onChangeSearch}
+        />
+        <button>Search</button>
+      </form>
+    </div>
   );
 }
 
