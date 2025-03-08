@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import SearchBar from "../SearchBar/SearchBar";
+import Tracklist from "../Tracklist/Tracklist";
 
 function App() {
   function onSearch(searchingResult) {
@@ -13,7 +14,9 @@ function App() {
       </header>
       <main>
         <SearchBar onSearch={onSearch} />
-        <section className="App-playlist"></section>
+        <section className="App-playlist">
+          <Tracklist />
+        </section>
       </main>
     </div>
   );

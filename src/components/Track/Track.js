@@ -12,10 +12,8 @@ function Track({ track, onAdd, onRemove, isRemoval }) {
   return (
     <div className={styles.Track}>
       <div className={styles.TrackInformation}>
-        <h3>{track.name}</h3>
-        <p>
-          {track.artist} | {track.album}
-        </p>
+        <h3 className={styles.TrackTitle}>{track.name}</h3>
+        <p className={styles.TrackDetail}>{track.artist} | {track.album}</p>
       </div>
       <button
         className={styles.TrackAction}
