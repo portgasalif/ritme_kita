@@ -12,6 +12,8 @@ function SearchBar({ onSearch }) {
     e.preventDefault();
     if (search.trim()) {
       onSearch(search);
+    } else {
+      alert("Please enter a song name.");
     }
     setSearch("");
   }

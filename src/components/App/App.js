@@ -58,13 +58,13 @@ function App() {
   ]);
 
   function onSearch(searchingResults) {
-    alert("Mencari:" + searchingResults);
+    alert("Mencari: " + searchingResults);
   }
   function addTrack(track) {
-    alert("Menambahkan" + track.name);
+    alert("Menambahkan " + track.name);
   }
   function removeTrack(track) {
-    alert("Menghapus" + track.name);
+    alert("Menghapus " + track.name);
   }
 
   return (
