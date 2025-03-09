@@ -13,7 +13,9 @@ function Track({ track, onAdd, onRemove, isRemoval }) {
     <div className={styles.Track}>
       <div className={styles.TrackInformation}>
         <h3 className={styles.TrackTitle}>{track.name}</h3>
-        <p className={styles.TrackDetail}>{track.artist} | {track.album}</p>
+        <p className={styles.TrackDetail}>
+          {track.artist} | {track.album}
+        </p>
       </div>
       <button
         className={styles.TrackAction}
