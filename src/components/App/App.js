@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
+import Playlist from "../Playlist/Playlist";
 
 function App() {
   const [searchResults, setSearchResults] = useState([
@@ -56,17 +57,33 @@ function App() {
     },
     { id: 10, name: "Purple Rain", artist: "Prince", album: "Purple Rain" },
   ]);
-
+  const [playlistName, setPlaylistName] = useState("New Playlist");
+  const [playlistTracks, setPlaylistTracks] = useState([]);
   function onSearch(searchingResults) {
     alert("Mencari: " + searchingResults);
   }
   function addTrack(track) {
+    if (!playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
+      setPlaylistTracks([...playlistTracks, track]);
+    }
     alert("Menambahkan " + track.name);
   }
   function removeTrack(track) {
+    setPlaylistTracks(
+      playlistTracks.filter((savedTrack) => savedTrack.id !== track.id)
+    );
+
     alert("Menghapus " + track.name);
   }
 
+  function updatePlaylistName(name) {
+    setPlaylistName(name);
+  }
+  function savePlaylist() {
+    alert(
+      `Menyimpan playlist "${playlistName}" dengan ${playlistTracks.length} lagu`
+    );
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -76,6 +93,13 @@ function App() {
         <SearchBar onSearch={onSearch} />
         <section className="App-playlist">
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
+          <Playlist
+            playlistName={playlistName}
+            playlistTracks={playlistTracks}
+            onRemove={removeTrack}
+            onNameChange={updatePlaylistName}
+            onSave={savePlaylist}
+          />
         </section>
       </main>
     </div>
