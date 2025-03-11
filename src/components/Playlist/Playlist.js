@@ -8,6 +8,7 @@ function Playlist({
   onRemove,
   onNameChange,
   onSave,
+  isSaving,
 }) {
   function handleNameChange(event) {
     onNameChange(event.target.value);
@@ -32,9 +33,9 @@ function Playlist({
         className={styles.PlaylistButton}
         type="button"
         onClick={onSave}
-        disabled={!playlistTracks.length || !playlistName.trim()}
+        disabled={!playlistTracks.length || !playlistName?.trim()}
       >
-        SAVE TO SPOTIFY
+        {isSaving ? "Menyimpan..." : "SAVE TO SPOTIFY"}
       </button>
     </div>
   );

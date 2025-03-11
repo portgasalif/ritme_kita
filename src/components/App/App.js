@@ -6,8 +6,9 @@ import Playlist from "../Playlist/Playlist";
 import Spotify from "../../util/Spotify";
 function App() {
   const [searchResults, setSearchResults] = useState([]);
-  const [playlistName, setPlaylistName] = useState("New Playlist");
+  const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [isSaving, setIsSaving] = useState(false);
 
   function onSearch(term) {
     Spotify.search(term).then((results) => {
@@ -33,18 +34,21 @@ function App() {
       alert("Nama playlist dan lagu tidak boleh kosong!");
       return;
     }
-
+    setIsSaving(true);
     const trackUris = playlistTracks.map((track) => track.uri);
+
     Spotify.savePlaylist(playlistName, trackUris)
       .then(() => {
-        alert(
-          `Menyimpan playlist "${playlistName}" dengan ${playlistTracks.length} lagu`
-        );
-        setPlaylistName("New Playlist");
         setPlaylistTracks([]);
+        alert(
+          `Berhasil menyimpan ${playlistTracks.length} lagu ke playlist "${playlistName}"`
+        );
       })
       .catch((error) => {
         alert("Terjadi kesalahan saat menyimpan playlist: " + error.message);
+      })
+      .finally(() => {
+        setIsSaving(false);
       });
   }
   return (
@@ -62,6 +66,7 @@ function App() {
             onRemove={removeTrack}
             onNameChange={updatePlaylistName}
             onSave={savePlaylist}
+            isSaving={isSaving}
           />
         </section>
       </main>

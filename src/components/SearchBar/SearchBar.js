@@ -10,12 +10,12 @@ function SearchBar({ onSearch }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (search.trim()) {
-      onSearch(search);
-    } else {
-      alert("Please enter a song name.");
+    const trimmedSearch = search.trim();
+    if (!trimmedSearch) {
+      alert("Masukkan nama lagu untuk dicari");
+      return;
     }
-    setSearch("");
+    onSearch(trimmedSearch);
   }
   return (
     <div className={styles.SearchBar}>
