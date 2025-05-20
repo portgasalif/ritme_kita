@@ -1,6 +1,14 @@
-# ritme_kita
+# Ritme Kita
 
 A React application that lets users search Spotify, create playlists, and save them to their Spotify accounts.
+
+## Screenshots
+
+### Modern Interface with Dual-Panel Layout
+![screenshot-1747663175782](https://github.com/user-attachments/assets/94975158-845c-4db1-8802-6dc71360dae5)
+### Seamless Song Search and Playlist Building
+![screenshot-1747663224020](https://github.com/user-attachments/assets/cea1d265-301b-4fd6-a7e0-6b0ba096363b)
+
 
 ## Technologies
 
@@ -17,6 +25,6 @@ A React application that lets users search Spotify, create playlists, and save t
 - Export playlists to Spotify
 - Responsive design
 
-## Features
+## Author
 
-Author: Alif Fachrel
+Created by Alif Fachrel
